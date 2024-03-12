@@ -1,3 +1,6 @@
+// dodać interpunkcje
+// naprawić zbyt duże whitespaces
+
 public class Zadanie3 {
     public static void main(String[] args) {
         System.out.println(generateLoremIpsum(50));
@@ -13,17 +16,18 @@ public class Zadanie3 {
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 """;
 
-        String[] loremIpsumDemoArray = loremIpsumDemo.split("\\s+|\\.");
+        String[] loremIpsumDemoArray = loremIpsumDemo.split("\\s+|\n|\\.|,");
 
-        String[] loremIpsum = new String[words];
+        String[] loremIpsum = new String[words + 1];
         for (int i = 0; i < words; i++) {
-            if( i < 5 ) {
+            if ( i < 5 ) {
                 loremIpsum[i] = loremIpsumDemoArray[i];
-            } else {
+            }  else {
                 int randomInt = getRandomNumber(words - 1);
                 loremIpsum[i] = loremIpsumDemoArray[randomInt];
             }
         }
+        loremIpsum[words] = ".";
 
         return new String(String.join(" ", loremIpsum));
     }
